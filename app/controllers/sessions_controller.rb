@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     if !params[:name].present?
       redirect_to login_path
     else
-      session[:name] = params[:name]
+      session[:id] = User.find_by(:name => params[:name])
       redirect_to homepage_path
     end
   end
