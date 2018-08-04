@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
 
   def create
     binding.pry
-    if !params[:name].present?
+    if !params[:user][:name].present?
       redirect_to login_path
     else
-      session[:id] = User.find_by(:name => params[:name])
+      session[:id] = User.find_by(:name => params[:user][:name])
       redirect_to homepage_path
     end
   end
