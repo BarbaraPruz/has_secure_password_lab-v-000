@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to login_path
     else
       binding.pry
-      session[:id] = User.find_by(:name => params[:user][:name])
+      session[:id] = User.find_by(:name => params[:user][:name]).id
       redirect_to homepage_path
     end
   end
