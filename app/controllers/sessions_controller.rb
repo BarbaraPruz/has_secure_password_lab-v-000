@@ -4,10 +4,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if !params[:user][:name].present?
+    user = User.find_by(:name => params[:user][:name])
+    if !user || !user.authenticate(params[:user][:password])
       redirect_to login_path
     else
-      session[:user_id] = User.find_by(:name => params[:user][:name]).id
+      session[:user_id] = user.id
       redirect_to homepage_path
     end
   end
