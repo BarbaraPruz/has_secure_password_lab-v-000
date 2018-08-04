@@ -1,8 +1,10 @@
+require 'pry'
 class SessionsController < ApplicationController
   def new
   end
 
   def create
+    binding.pry
     if !params[:name].present?
       redirect_to login_path
     else
