@@ -5,9 +5,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.new(user_params).save
-    binding.pry
-    redirect_to(:controller => 'sessions', :action => 'create', params: user_params)
+    user = User.new(user_params)
+    user.save
+#    redirect_to(:controller => 'sessions', :action => 'create', params: user_params)
+    session[:user_id] = user.id 
+    redirect_to homepage_path
   end
 
   def homepage
