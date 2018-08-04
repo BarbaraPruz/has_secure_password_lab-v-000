@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params).save
-    redirect_to(controller: 'sessions', action: 'create', user_params) 
+    redirect_to(controller: 'sessions', action: 'create', user_params)
   end
 
   def homepage
