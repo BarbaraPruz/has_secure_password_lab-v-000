@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     user.save
 #    redirect_to(:controller => 'sessions', :action => 'create', params: user_params)
-    session[:user_id] = user.id 
+    session[:user_id] = user.id
     redirect_to homepage_path
   end
 
